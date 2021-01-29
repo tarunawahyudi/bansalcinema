@@ -12,7 +12,7 @@ oleh [themoviedb.org](https://www.themoviedb.org/)
 Jika anda ingin menggunakan API tersebut, silahkan baca dokumentasi
 dari situs resmi nya [themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
 
-## API Konfiguration
+## API Configuration
 
 Cari file `gradle.properties` di `.gradle` pada home directory project anda.
 

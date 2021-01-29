@@ -53,7 +53,7 @@ import static com.stmikbanisaleh.tarunawahyudi.bansalcinema.utilities.Constant.R
 public class MainActivity extends AppCompatActivity implements
         FavoriteAdapter.FavoriteAdapterOnClickHandler,
         SharedPreferences.OnSharedPreferenceChangeListener,
-        MoviePagedListAdapter.MoviePagedListAdapterOnClickHandler, BottomNavigationView.OnNavigationItemReselectedListener {
+        MoviePagedListAdapter.MoviePagedListAdapterOnClickHandler, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements
         mMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         initAdapter();
-        mMainBinding.navView.setOnNavigationItemReselectedListener(this);
+        mMainBinding.navView.setOnNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
             showNetworkDialog(isOnline());
@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         switch (menuItem.getItemId()) {
             case R.id.home:
@@ -340,6 +340,8 @@ public class MainActivity extends AppCompatActivity implements
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
         }
+
+        return true;
     }
 }
 
